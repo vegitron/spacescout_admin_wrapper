@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+from distutils.core import setup
+import subprocess
+import sys
+import os
+
+path = os.path.dirname(os.path.realpath(__file__))
+
+submodule_path = os.path.join(path, "spacescout_admin")
+
+subprocess.call(["git", "submodule", "foreach", "git", "pull"], cwd=path)
+
+
+setup(name='SpaceScout-Admin-Wrapper',
+      version='1.0',
+)
+
+subprocess.call(["pip", "install", "-r", "requirements.txt"], cwd=submodule_path)
