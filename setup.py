@@ -9,7 +9,8 @@ path = os.path.dirname(os.path.realpath(__file__))
 
 submodule_path = os.path.join(path, "spacescout_admin")
 
-subprocess.call(["git", "submodule", "foreach", "git", "pull"], cwd=path)
+subprocess.call(["git", "submodule", "init"], cwd=path)
+subprocess.call(["git", "submodule", "update"], cwd=path)
 
 
 setup(name='SpaceScout-Admin-Wrapper',
